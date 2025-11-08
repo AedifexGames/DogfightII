@@ -13,13 +13,8 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
     private static readonly float[] _yOffsets = { -7.5f, -2.5f, 2.5f, 7.5f };
 
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     private List<int> _currentColumn;
     private List<int> _lastColumn;
-=======
-    private CellDataSO[] _currentColumn;
-    private CellDataSO[] _lastColumn;
->>>>>>> Stashed changes
 =======
     private CellDataSO[] _currentColumn;
     private CellDataSO[] _lastColumn;
@@ -30,13 +25,8 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
     private void Start()
     {
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
         _lastColumn = new List<int> { 0, 0, 0, 0 };
         _currentColumn = new List<int> { 0, 0, 0, 0 };
-=======
-        _lastColumn = new CellDataSO[4]{ null, null, null, null };
-        _currentColumn = new CellDataSO[4] { null, null, null, null };
->>>>>>> Stashed changes
 =======
         _lastColumn = new CellDataSO[4]{ null, null, null, null };
         _currentColumn = new CellDataSO[4] { null, null, null, null };
@@ -60,9 +50,6 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
             CellDataSO verticalNeighbor = (i > 0) ? _currentColumn[i - 1] : null;
             List<bool> bordering = new List<bool>();
             for (int j = 0; j < _cards.Count; j++) { bordering.Add(horizontalNeighbor?.Id == _cards[j].Id || verticalNeighbor?.Id == _cards[j].Id); }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
             _currentColumn[i] = GenerateLevelCell(pos, bordering);
         }
@@ -92,15 +79,9 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
             {
                 GameObject prefab = _cards[i].GetPrefab();
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
                 if (prefab == null) return _cards[i].Id;
                 GameObject obj = GameObject.Instantiate(prefab);
                 if (obj == null) return _cards[i].Id;
-=======
-                if (prefab == null) return _cards[i];
-                GameObject obj = GameObject.Instantiate(prefab);
-                if (obj == null) return _cards[i];
->>>>>>> Stashed changes
 =======
                 if (prefab == null) return _cards[i];
                 GameObject obj = GameObject.Instantiate(prefab);

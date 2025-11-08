@@ -18,15 +18,10 @@ public class CellDataSO : ScriptableObject
     public GameObject GetPrefab()
     {
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
         if (prefabs == null) return null;
         if (prefabs.Count == 0) return null;
         int randomIndex = Random.Range(0, prefabs.Count - 1);
         return prefabs[randomIndex];
-=======
-        if (prefabs?.Count == 0) return null;
-        return prefabs[Random.Range(0, prefabs.Count - 1)];
->>>>>>> Stashed changes
 =======
         if (prefabs?.Count == 0) return null;
         return prefabs[Random.Range(0, prefabs.Count - 1)];
