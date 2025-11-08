@@ -43,14 +43,13 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
 
     private int GenerateLevelCell(Vector2 pos, bool[] bordering)
     {
+        Debug.Log(bordering);
         float totalWeight = CalculateTotalWeight(bordering);
         float selector = Random.Range(0f, totalWeight);
         float previousWeight = 0f;
         
         for (int i = 0; i < _cards.Count; i++)
         {
-            Debug.Log(previousWeight + _cards[i].Weight(bordering[i]));
-            
             if (selector > previousWeight && selector <= previousWeight + _cards[i].Weight(bordering[i]))
             {
                 GameObject prefab = _cards[i].GetPrefab();

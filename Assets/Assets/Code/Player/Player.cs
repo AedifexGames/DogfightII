@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
 
     //Offset Control Variables
     private CameraTarget _cameraTarget;
+    private bool _calculateOffset = true;
     [SerializeField] private float _minOffset;
     [SerializeField] private float _maxOffset;
     [SerializeField] private float _targetSpeedForMinOffset;
@@ -203,6 +204,7 @@ public class Player : MonoBehaviour
             {
                 EndDash();
             }
+            if (_currentDashTime > _totalDashTime / 4) { EnableOffset(); }
 
             // Speed up movement and dropoff
             float dif = _cachedMoveSpeed - _baseMoveSpeed;
@@ -234,6 +236,7 @@ public class Player : MonoBehaviour
         _currentDashTime = 0;
         _cachedMoveSpeed = _currentMoveSpeed;
         _spriteRenderer.color = Color.blue;
+        DisableOffset();
     }
 
     private void EndDash()
@@ -242,10 +245,12 @@ public class Player : MonoBehaviour
         _dashing = false;
         _currentMoveSpeed = _baseMoveSpeed;
         _spriteRenderer.color = Color.orange;
+        EnableOffset();
     }
 
     private void CalculateOffset()
     {
+        if (!_calculateOffset) return;
         // Velocities
         float v_0 = _baseMoveSpeed; // base speed
         float v_x = _currentMoveSpeed; // current speed
@@ -279,5 +284,17 @@ public class Player : MonoBehaviour
         float flipFactor = y / Math.Abs(y);
 
         return _centerGravStrength * _gravitationToCenter.Evaluate(yOffsetNorm) * -flipFactor;
+    }
+
+    private void DisableOffset()
+    {
+        _calculateOffset = false;
+        _cameraTarget.enabled = false;
+    }
+
+    private void EnableOffset()
+    {
+        _calculateOffset = true;
+        _cameraTarget.enabled = true;
     }
 }
