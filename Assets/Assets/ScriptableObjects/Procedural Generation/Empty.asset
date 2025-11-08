@@ -16,5 +16,4 @@ MonoBehaviour:
   _id: 0
   _baseWeight: 20
   _bonusWeight: 0
-  prefabs:
-  - {fileID: 5818767772379634749, guid: 78dcd98f9d337d4498701427b5933b4f, type: 3}
+  prefabs: []

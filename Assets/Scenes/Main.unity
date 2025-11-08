@@ -2670,13 +2670,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _centerGravStrength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299424048502272135, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7693154993807327243, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _initialTimerDuration
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8013255663388300398, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_LocalPosition.x
