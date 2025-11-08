@@ -108,16 +108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Player::Player
   _turnSpeed: 150
-<<<<<<< Updated upstream
   _baseMoveSpeed: 10
   _maxAngleOffset: 60
   rotateDegree: 270
   mobilityFactor: 2
-=======
-  _baseMoveSpeed: 5
-  _maxAngleOffset: 60
-  rotateDegree: 270
->>>>>>> Stashed changes
   _targetChargeAmount: 2
   _chargeSpeed: 1
   _chargeSlowDown:
@@ -144,19 +138,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-<<<<<<< Updated upstream
   _chargeMinSpeed: 3
   _fullyChargedDashSpeed: 20
   _minChargeToDash: 0.4
   _partialChargeDashDifference: 2
   _baseDashSpeed: 14
-=======
-  _chargeMinSpeed: 1
-  _fullyChargedDashSpeed: 13
-  _minChargeToDash: 0.4
-  _partialChargeDashDifference: 2
-  _baseDashSpeed: 9.5
->>>>>>> Stashed changes
   _dashLifetimeSpeed:
     serializedVersion: 2
     m_Curve:
@@ -193,13 +179,8 @@ MonoBehaviour:
   _totalDashTime: 4
   _minOffset: -16
   _maxOffset: 16
-<<<<<<< Updated upstream
   _targetSpeedForMinOffset: 30
   _targetSpeedForMaxOffset: 3
-=======
-  _targetSpeedForMinOffset: 15
-  _targetSpeedForMaxOffset: 1
->>>>>>> Stashed changes
   _offsetLerp:
     serializedVersion: 2
     m_Curve:
@@ -213,7 +194,6 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-<<<<<<< Updated upstream
       time: 0.28705755
       value: 0.44131482
       inSlope: 0.65639275
@@ -239,24 +219,6 @@ MonoBehaviour:
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-=======
-      time: 0.86596316
-      value: 0.5511356
-      inSlope: 1.8894178
-      outSlope: 1.8894178
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.3057665
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 4.1248636
-      outSlope: 4.1248636
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.1521604
->>>>>>> Stashed changes
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
