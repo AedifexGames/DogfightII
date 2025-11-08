@@ -1717,6 +1717,8 @@ GameObject:
   - component: {fileID: 1555811939}
   - component: {fileID: 1555811941}
   - component: {fileID: 1555811940}
+  - component: {fileID: 1555811943}
+  - component: {fileID: 1555811942}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1850,6 +1852,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1511ccae7919cfc46b603b9b337fdc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.BaseInput
+--- !u!114 &1555811942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555811936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd83cca4f19dc34ab5f255e4f5278d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Projectile::ProjectileSpawner
+  _projectileData: {fileID: 11400000, guid: d092086f0ae6f024b9ef5d7d03ddf829, type: 2}
+  _firePoint: {fileID: 1555811938}
+--- !u!114 &1555811943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555811936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb36743ea230954ab0c03c73e2b5466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Timer::UnityEventOnTimer
+  _onTimer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1555811942}
+        m_TargetAssemblyTypeName: ProjectileSpawner, Projectile
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _initialTimerDuration: 2
+  _currentTimer: 0
 --- !u!1 &1627929014
 GameObject:
   m_ObjectHideFlags: 0

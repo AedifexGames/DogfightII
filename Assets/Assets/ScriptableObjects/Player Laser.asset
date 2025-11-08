@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a8c45cfed01f844ab7a62e8b5bbe02, type: 3}
+  m_Name: Player Laser
+  m_EditorClassIdentifier: Projectile::ProjectileSO
+  _projectile: {fileID: 3500570734909327294, guid: c8a4ac3c182b437469a5e5116c3aa711, type: 3}
+  _fireAudio: {fileID: 0}
