@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private float _currentMoveSpeed;
     [SerializeField] private float _maxAngleOffset = 60f;
     private UnityEventOnTimer _projectileTimer;
-    [SerializeField] float rotateDegree = 0.5f;
+    [SerializeField] private float rotateDegree = 270f;
 
     //Charge Variables
     [SerializeField] private float _targetChargeAmount;
@@ -70,7 +70,9 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // Set movement settings
-        _rb.angularVelocity = _turnSpeed * _inputManager.TurnInput();
+        _rb.angularVelocity = (_inputManager.SpacebarPressed()) 
+            ? _turnSpeed * _inputManager.TurnInput()
+            : _turnSpeed * 2 * _inputManager.TurnInput();
         _rb.linearVelocity = _currentMoveSpeed * transform.up;
         ClampAngle();
         ClampYAxis();
@@ -121,10 +123,10 @@ public class Player : MonoBehaviour
             float pointedDirection = angleOffset / Math.Abs(angleOffset);
 
             // Check edge case
-            float amt = (Math.Abs(angleOffset) < rotateDegree) ? Math.Abs(angleOffset) : rotateDegree;
+            float amt = (Math.Abs(angleOffset) < Time.deltaTime * rotateDegree) ? Math.Abs(angleOffset) : rotateDegree;
             
             // Calculate change
-            float z = transform.rotation.eulerAngles.z + (rotateDegree * (-pointedDirection));
+            float z = transform.rotation.eulerAngles.z + Time.deltaTime * (amt * (-pointedDirection));
 
             // Apply change
             transform.rotation = Quaternion.Euler(

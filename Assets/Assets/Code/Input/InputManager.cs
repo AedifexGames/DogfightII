@@ -34,10 +34,10 @@ public class InputManager : SingletonBehaviour<InputManager>
 
     private void OnEnable()
     {
-        _controls.Enable();
+        _controls?.Enable();
     }
     private void OnDisable()
     {
-        _controls.Disable();
+        _controls?.Disable();
     }
 }

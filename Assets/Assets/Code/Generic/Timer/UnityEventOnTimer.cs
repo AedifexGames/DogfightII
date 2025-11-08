@@ -22,6 +22,7 @@ public class UnityEventOnTimer : MonoBehaviour
         if (_currentTimer < 0)
         {
             _onTimer?.Invoke();
+            ResetTimer();
         }
     }
 
