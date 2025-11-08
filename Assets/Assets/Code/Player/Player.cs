@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _maxAngleOffset = 60f;
     private UnityEventOnTimer _projectileTimer;
     [SerializeField] private float rotateDegree = 270f;
+    [SerializeField] private float mobilityFactor;
 
     //Charge Variables
     [SerializeField] private float _targetChargeAmount;
@@ -77,6 +78,12 @@ public class Player : MonoBehaviour
         ClampAngle();
         ClampYAxis();
         RealignPath();
+
+        // Mobility factor and gravitation forces
+        _rb.linearVelocity = new Vector2(
+            _rb.linearVelocityX,
+            (_rb.linearVelocityY + GravitationToCenter()) * mobilityFactor
+        );
 
         // Apply gravitation forces
         _rb.linearVelocityY += GravitationToCenter();
@@ -266,6 +273,8 @@ public class Player : MonoBehaviour
         float edgeDist = 10;
         float yOffset = Math.Abs(y);
         float yOffsetNorm = yOffset / edgeDist;
+
+        if (yOffsetNorm == 0) return 0;
 
         float flipFactor = y / Math.Abs(y);
 

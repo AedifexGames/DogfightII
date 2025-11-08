@@ -7,6 +7,7 @@ public class Health
     private bool alive = true;
     [SerializeField] private float maxShield;
     [SerializeField] private float curShield;
+    private float toughness = 0;
     #endregion
 
     public bool isAlive { get { return alive; } }
@@ -19,7 +20,10 @@ public class Health
         }
         else
         {
-            kill();
+            if (amt >= toughness)
+            {
+                kill();
+            }
         }
     }
 
@@ -49,6 +53,10 @@ public class Health
         curShield = maxShield;
     }
 
+    private void destroyShield()
+    {
+        curShield = 0;
+    }
     private void reset()
     {
         revive();

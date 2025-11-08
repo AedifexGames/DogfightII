@@ -2633,7 +2633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: rotateDegree
-      value: 3.5
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _baseDashSpeed
@@ -2646,6 +2646,10 @@ PrefabInstance:
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _totalDashTime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: mobilityFactor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _chargeMinSpeed
@@ -2677,7 +2681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _chargeSlowDown.m_Curve.Array.size
@@ -2689,10 +2693,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[1].time
-      value: 0.86596316
+      value: 0.28705755
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[2].time
+      value: 0.7263777
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _offsetLerp.m_Curve.Array.data[3].time
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
@@ -2701,19 +2709,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[1].value
-      value: 0.5511356
+      value: 0.44131482
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[2].value
+      value: 0.55317724
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _offsetLerp.m_Curve.Array.data[3].value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[1].inSlope
-      value: 1.8894178
+      value: 0.65639275
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[2].inSlope
-      value: 4.1248636
+      value: 0.4852149
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _offsetLerp.m_Curve.Array.data[3].inSlope
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _chargeSlowDown.m_Curve.Array.data[0].time
@@ -2725,19 +2741,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
+      value: 0.46777987
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[1].outSlope
-      value: 1.8894178
+      value: 0.65639275
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[2].inWeight
-      value: 0.1521604
+      value: 0.29455286
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[2].outSlope
-      value: 4.1248636
+      value: 0.4852149
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _offsetLerp.m_Curve.Array.data[3].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _offsetLerp.m_Curve.Array.data[3].outSlope
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _chargeSlowDown.m_Curve.Array.data[0].value
@@ -2749,7 +2773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _offsetLerp.m_Curve.Array.data[1].outWeight
-      value: 0.3057665
+      value: 0.53509957
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _offsetLerp.m_Curve.Array.data[2].outWeight
+      value: 0.642872
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _chargeSlowDown.m_Curve.Array.data[1].inSlope
