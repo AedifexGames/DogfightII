@@ -1,0 +1,16 @@
+{
+    "name": "LevelGen",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cb0eda631860ca74290dc54ff5875b20"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
