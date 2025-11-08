@@ -19,6 +19,9 @@ MonoBehaviour:
   _bonusWeight: 7
 =======
   _bonusWeight: 6
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   prefabs:
   - {fileID: 5818767772379634749, guid: b5ddf6b63a64efe46a91e5aae86f32b8, type: 3}
