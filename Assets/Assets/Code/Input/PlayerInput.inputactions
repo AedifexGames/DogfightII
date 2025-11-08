@@ -38,7 +38,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
+                    "name": "Arrows",
                     "id": "876cd4ae-2612-4e4e-9271-956e3f99a0f0",
                     "path": "1DAxis",
                     "interactions": "",
@@ -63,6 +63,39 @@
                     "name": "positive",
                     "id": "8964e5b1-8ec3-45dd-b632-9e5dbc4e0ad7",
                     "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Ship",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "WASD",
+                    "id": "e2bc1247-b2e6-4ba7-80bb-1b4fef2b8af9",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Ship",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "ed7c4b52-de85-4990-99d0-428edf021858",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Ship",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "8d6fbff7-f12e-43e5-92cd-143347e1d9a4",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
