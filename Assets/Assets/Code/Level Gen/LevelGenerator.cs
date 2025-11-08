@@ -50,14 +50,6 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
         
         for (int i = 0; i < _cards.Count; i++)
         {
-            if (_cards == null)
-                Debug.LogError("Cards list is null!");
-            if (_cards[i] == null)
-                Debug.LogError($"Card {i} is null");
-            if (bordering == null)
-                Debug.LogError("Bordering list is null!");
-            else if (bordering.Count <= i)
-                Debug.LogError($"Bordering list too short: {bordering.Count} < {_cards.Count}");
             if (selector > previousWeight && selector <= previousWeight + _cards[i].Weight(bordering[i]))
             {
                 GameObject prefab = _cards[i].GetPrefab();
