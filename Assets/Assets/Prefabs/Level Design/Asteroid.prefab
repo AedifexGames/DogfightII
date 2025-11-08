@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1154144133162713177}
   - component: {fileID: 7818415494186990263}
   - component: {fileID: 3656460184483671491}
+  - component: {fileID: -1606023380231740252}
+  - component: {fileID: -6110997804656140694}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -209,3 +211,31 @@ MonoBehaviour:
   minScale: {x: 0.8, y: 0.8}
   maxScale: {x: 3, y: 3}
   maintainRatio: 1
+--- !u!114 &-1606023380231740252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6485789506621760554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f880b940bead7489f8fb8f7f38d087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Randomness::RandomChanceToExist
+  chanceToNotExist: 0.548
+--- !u!114 &-6110997804656140694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6485789506621760554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e918a8ee51e3a34ab0b5e311796a446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Randomness::RandomOffset
+  xOffsetMaxRadius: 0.5
+  yOffsetMaxRadius: 0.5
+  zOffsetMaxRadius: 0

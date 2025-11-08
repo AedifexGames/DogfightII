@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: Asteroid
   _id: 1
   _baseWeight: 5
-  _bonusWeight: 6
-  prefabs: []
+  _bonusWeight: 7
+  prefabs:
+  - {fileID: 5818767772379634749, guid: b5ddf6b63a64efe46a91e5aae86f32b8, type: 3}

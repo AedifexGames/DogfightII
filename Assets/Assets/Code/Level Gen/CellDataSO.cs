@@ -9,7 +9,7 @@ public class CellDataSO : ScriptableObject
     [SerializeField] private float _baseWeight;
     [SerializeField] private float _bonusWeight;
 
-    [SerializeField] private List<GameObject> prefabs;
+    [SerializeField] private List<GameObject> prefabs = new List<GameObject>();
 
     public float Weight(bool bordering) { return bordering ? _baseWeight + _bonusWeight : _baseWeight; }
     public string Name { get { return _name; } }
@@ -17,6 +17,9 @@ public class CellDataSO : ScriptableObject
 
     public GameObject GetPrefab()
     {
-        return prefabs[Random.Range(0, prefabs.Count)];
+        if (prefabs == null) return null;
+        if (prefabs.Count == 0) return null;
+        int randomIndex = Random.Range(0, prefabs.Count - 1);
+        return prefabs[randomIndex];
     }
 }

@@ -7,56 +7,65 @@ enum CardID
     Asteroid = 1
 }
 
-public class LevelGenerator : MonoBehaviour
+public class LevelGenerator : SingletonBehaviour<LevelGenerator>
 {
     private float _currentLevelCursorX = 35.5f;
     private static readonly float[] _yOffsets = { -7.5f, -2.5f, 2.5f, 7.5f };
 
-    private CellDataSO[] _currentColumn = new CellDataSO[4];
-    private CellDataSO[] _lastColumn = new CellDataSO[4];
+    private List<int> _currentColumn;
+    private List<int> _lastColumn;
 
-    [SerializeField] private List<CellDataSO> _cards;
+    [SerializeField] private List<CellDataSO> _cards = new List<CellDataSO>();
 
     private void Start()
     {
+        _lastColumn = new List<int> { 0, 0, 0, 0 };
+        _currentColumn = new List<int> { 0, 0, 0, 0 };
         for (int i = 0; i < 5; i++) GenerateColumn();
     }
 
-    private void GenerateColumn()
+    public void GenerateColumn()
     {
+        
         for (int i = 0; i < 4; i++)
         {
             Vector2 pos = new Vector2(_currentLevelCursorX, _yOffsets[i]);
-            CellDataSO horizontalNeighbor = _lastColumn[i];
-            CellDataSO verticalNeighbor = (i > 0) ? _currentColumn[i - 1] : null;
-            List<bool> bordering = new List<bool>();
-            for (int j = 0; j < _cards.Count; j++) bordering.Add(horizontalNeighbor.Id == _cards[j]?.Id || verticalNeighbor.Id == _cards[j]?.Id);
+            int horizontalNeighbor = _lastColumn[i];
+            int verticalNeighbor = (i > 0) ? _currentColumn[i - 1] : 0;
+            bool[] bordering = new bool[_cards.Count];
+            for (int j = 0; j < _cards.Count; j++) { bordering[j] = (horizontalNeighbor == _cards[j].Id || verticalNeighbor == _cards[j].Id); }
             _currentColumn[i] = GenerateLevelCell(pos, bordering);
         }
         _lastColumn = _currentColumn;
-        for (int i = 0; i < 4; i++) _currentColumn = null;
+        for (int i = 0; i < 4; i++) _currentColumn[i] = 0;
         _currentLevelCursorX += 5;
     }
 
-    private CellDataSO GenerateLevelCell(Vector2 pos, List<bool> bordering)
+    private int GenerateLevelCell(Vector2 pos, bool[] bordering)
     {
         float totalWeight = CalculateTotalWeight(bordering);
         float selector = Random.Range(0f, totalWeight);
         float previousWeight = 0f;
+        
         for (int i = 0; i < _cards.Count; i++)
         {
+            Debug.Log(previousWeight + _cards[i].Weight(bordering[i]));
+            
             if (selector > previousWeight && selector <= previousWeight + _cards[i].Weight(bordering[i]))
             {
-                GameObject obj = GameObject.Instantiate(_cards[i].GetPrefab());
+                GameObject prefab = _cards[i].GetPrefab();
+                if (prefab == null) return _cards[i].Id;
+                GameObject obj = GameObject.Instantiate(prefab);
+                if (obj == null) return _cards[i].Id;
                 obj.transform.position = pos;
-                return _cards[i];
+                return _cards[i].Id;
             }
             previousWeight += _cards[i].Weight(bordering[i]);
         }
-        return null;
+        return 0;
     }
 
-    private float CalculateTotalWeight(List<bool> bordering)
+    private float CalculateTotalWeight(bool[] bordering)
     {
         float result = 0;
         for (int i = 0; i < _cards.Count; i++)
