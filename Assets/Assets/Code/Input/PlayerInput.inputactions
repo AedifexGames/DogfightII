@@ -102,6 +102,39 @@
                     "action": "Turn Ship",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Vertical Arrows",
+                    "id": "a8388b8b-1a0f-4d1b-907f-64385b36071e",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Ship",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "6bdb0ed6-a5bd-438a-9ae4-8f506593dfa5",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Ship",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ac36d7ed-a3c2-4bc1-8d5f-0000f90ffcc0",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Ship",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
