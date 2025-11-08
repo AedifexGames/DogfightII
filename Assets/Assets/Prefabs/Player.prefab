@@ -109,6 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Player::Player
   _turnSpeed: 150
   _moveSpeed: 4
+  _maxAngleOffset: 60
+  _targetChargeAmount: 2
+  _chargeSpeed: 1
 --- !u!114 &1354743938869106887
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     private bool _charging = false;
     private bool _charged = false;
 
+
+    //PLACEHOLDER
+    private SpriteRenderer _spriteRenderer;
+
+
     private void Start()
     {
         _inputManager = InputManager.instance;
@@ -23,6 +28,9 @@ public class Player : MonoBehaviour
         _inputManager.onSpacebarRelease += SpacebarEnd;
         _rb = GetComponent<Rigidbody2D>();
         _projectileTimer = GetComponent<UnityEventOnTimer>();
+
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.color = Color.orange;
     }
 
     private void Update()
@@ -34,7 +42,10 @@ public class Player : MonoBehaviour
         {
             _currentChargeAmount += Time.deltaTime * _chargeSpeed;
             if (_currentChargeAmount > _targetChargeAmount)
+            {
                 _charged = true;
+                _spriteRenderer.color = Color.green;
+            }
         }
     }
 
@@ -51,10 +62,12 @@ public class Player : MonoBehaviour
         _currentChargeAmount = 0;
         _charging = true;
         _charged = false;
+        _spriteRenderer.color = Color.yellow;
     }
 
     private void SpacebarEnd()
     {
+        _spriteRenderer.color = Color.orange;
         if (_charged)
         {
             Dash();
