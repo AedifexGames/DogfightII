@@ -13,8 +13,7 @@ public class Player : MonoBehaviour
     private float _currentMoveSpeed;
     [SerializeField] private float _maxAngleOffset = 60f;
     private UnityEventOnTimer _projectileTimer;
-    [SerializeField] private float _realignmentTime;
-    private float _currRealignmentTime;
+    [SerializeField] float rotateDegree = 0.5f;
 
     //Charge Variables
     [SerializeField] private float _targetChargeAmount;
@@ -101,7 +100,7 @@ public class Player : MonoBehaviour
 
     private void ClampYAxis()
     {
-        float edgesDist = 10;
+        float edgesDist = 9.5f;
         transform.position = new Vector3(
             transform.position.x,
             Mathf.Clamp(transform.position.y, -edgesDist, edgesDist),
@@ -111,10 +110,10 @@ public class Player : MonoBehaviour
 
     private void RealignPath()
     {
-        if (_inputManager.TurnInput() == 0 && _inputManager.SpacebarPressed())
+        if (_dashing) return;
+        if (_inputManager.TurnInput() == 0 && !_inputManager.SpacebarPressed())
         {
             // Get direction and change
-            float rotateDegree = 0.5f;
             float angleOffset = transform.rotation.eulerAngles.z - 270;
 
             if (angleOffset == 0) return;
@@ -122,7 +121,7 @@ public class Player : MonoBehaviour
             float pointedDirection = angleOffset / Math.Abs(angleOffset);
 
             // Check edge case
-            rotateDegree = (Math.Abs(angleOffset) < rotateDegree) ? Math.Abs(angleOffset) : rotateDegree;
+            float amt = (Math.Abs(angleOffset) < rotateDegree) ? Math.Abs(angleOffset) : rotateDegree;
             
             // Calculate change
             float z = transform.rotation.eulerAngles.z + (rotateDegree * (-pointedDirection));
