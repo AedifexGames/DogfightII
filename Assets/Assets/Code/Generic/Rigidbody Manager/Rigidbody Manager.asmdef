@@ -1,0 +1,16 @@
+{
+    "name": "RigidbodyManager",
+    "rootNamespace": "",
+    "references": [
+        "GUID:357d3fa4476df0a45b9201d47cc2595a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
