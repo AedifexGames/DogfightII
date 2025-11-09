@@ -119,9 +119,9 @@ TextureImporter:
         x: 2419
         y: 934
         width: 1476
-        height: 850
+        height: 420
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,11 +134,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: dogfi_001_01_X1_0008_1
+      rect:
+        serializedVersion: 2
+        x: 2418
+        y: 1354
+        width: 1476
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791c505e3ddbad9479b28a93bf010f31
+      internalID: 167263416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 12892490e9aa08d499a66749c0a405e7
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +171,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       dogfi_001_01_X1_0008_0: 4593214928889311053
+      dogfi_001_01_X1_0008_1: 167263416
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
