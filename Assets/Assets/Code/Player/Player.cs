@@ -81,20 +81,18 @@ public class Player : MonoBehaviour
         RealignPath();
 
         // Mobility factor and gravitation forces
-        _rb.linearVelocity = new Vector2(
+        /*_rb.linearVelocity = new Vector2(
             _rb.linearVelocityX,
             (_rb.linearVelocityY + GravitationToCenter()) * mobilityFactor
-        );
+        );*/
 
         // Apply gravitation forces
-        _rb.linearVelocityY += GravitationToCenter();
+        //_rb.linearVelocityY += GravitationToCenter();
 
         // Handle dashing and charging
         Charge();
         Dash();
         CalculateOffset(); // move forward with speed
-
-
     }
 
     private void ClampAngle()
@@ -126,7 +124,7 @@ public class Player : MonoBehaviour
             // Get direction and change
             float angleOffset = transform.rotation.eulerAngles.z - 270;
 
-            if (angleOffset == 0) return;
+            if (Mathf.Abs(angleOffset) < 2f) { transform.rotation = Quaternion.Euler(0,0,270); return; }
 
             float pointedDirection = angleOffset / Math.Abs(angleOffset);
 
