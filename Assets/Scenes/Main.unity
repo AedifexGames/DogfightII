@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &158587466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Intensity: 0.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000d7abbea2b9dc776ea36c16df7f10079f7fc620c4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1814,7 +1814,7 @@ GameObject:
   - component: {fileID: 1289890339}
   - component: {fileID: 1289890341}
   m_Layer: 3
-  m_Name: Planet 1
+  m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,8 +2582,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1564562473
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -4073980847031359088, guid: 4a74a39593a30f44abce49826c344bab, type: 3}
   m_Color: {r: 0.49820012, g: 0.52655697, b: 0.69182384, a: 1}
@@ -3027,7 +3027,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _baseMoveSpeed
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4299424048502272135, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_Name
@@ -3052,6 +3052,34 @@ PrefabInstance:
     - target: {fileID: 6819117817223012289, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.99853027
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819117817223012289, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819117817223012289, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[0]'
+      value: -1564562473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819117817223012289, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[2]'
+      value: 1853349049
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819117817223012289, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[3]'
+      value: -1626926977
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819117817223012289, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[4]'
+      value: -1004484993
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819117817223012289, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[5]'
+      value: -552178525
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937355795748919351, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: m_Name
+      value: Dogfighter II Model
       objectReference: {fileID: 0}
     - target: {fileID: 8013255663388300398, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_LocalPosition.x
