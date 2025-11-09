@@ -2,7 +2,7 @@
 - Project name: DogfightII
 - Unity version: Unity 6000.2.10f1
 - Active game object:
-  - Name: Planet
+  - Name: Planet 1
   - Tag: Untagged
-  - Layer: Default
+  - Layer: Orbit
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

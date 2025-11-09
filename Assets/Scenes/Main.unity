@@ -1812,6 +1812,7 @@ GameObject:
   - component: {fileID: 1289890337}
   - component: {fileID: 1289890340}
   - component: {fileID: 1289890339}
+  - component: {fileID: 1289890341}
   m_Layer: 3
   m_Name: Planet 1
   m_TagString: Untagged
@@ -1949,6 +1950,42 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.000000029802322}
   m_Radius: 0.5
+--- !u!114 &1289890341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289890336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c93da8cd6d5c2c4896f65ce585e9b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccelerationForce
+  gravPull:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.009278558
+      value: 1.0067346
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.0132446
+      value: 0.01335144
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1309384441
 GameObject:
   m_ObjectHideFlags: 0
