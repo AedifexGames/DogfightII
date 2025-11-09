@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1606023380231740252}
   - component: {fileID: -6110997804656140694}
   - component: {fileID: -2276668937856055109}
+  - component: {fileID: 9121895783954298263}
   m_Layer: 10
   m_Name: Asteroid
   m_TagString: Asteroid
@@ -253,6 +254,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9934675917150a4eaec38d0c016b9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Interactables::Asteroid
+--- !u!114 &9121895783954298263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6485789506621760554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fe38fa6c603994eaba0a47406ddf32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxShield: 0
+  curShield: 0
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  damageMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  healMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1174458435975655367
 PrefabInstance:
   m_ObjectHideFlags: 0

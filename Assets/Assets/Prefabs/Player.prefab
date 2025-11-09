@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4909939425179122808}
   - component: {fileID: 8846572100995992499}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Charge Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 4193788453907948145}
   - component: {fileID: 3906609040521864095}
   - component: {fileID: 5856041929395772066}
+  - component: {fileID: 1913254501489973840}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -581,6 +582,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: RigidbodyManager::Physics.Rigidbody2DManager
   _terminalVelocity: {x: 40, y: 40}
+--- !u!114 &1913254501489973840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299424048502272135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fe38fa6c603994eaba0a47406ddf32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxShield: 1
+  curShield: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7590842827030501917}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  onHeal:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7590842827030501917}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  damageMask:
+    serializedVersion: 2
+    m_Bits: 0
+  healMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7590842827030501917
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +646,7 @@ GameObject:
   - component: {fileID: 8759356680940198664}
   - component: {fileID: 3290379181388896436}
   m_Layer: 7
-  m_Name: Circle
+  m_Name: Shield Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -661,7 +715,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.33018857, g: 0.8337867, b: 1, a: 0.12156863}
+  m_Color: {r: 0.32941175, g: 1, b: 0.8850552, a: 0.12156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
