@@ -101,7 +101,7 @@ public class AccelerationForce : MonoBehaviour
     }
 
 
-    private float calcVelocityDelta()
+    private Vector2 calcVelocityDelta()
     {
         float time = calcDistNormTime();
 
@@ -109,7 +109,9 @@ public class AccelerationForce : MonoBehaviour
 
         float strengthReduced = (mass != 0) ? strength / mass : strength;
 
-        return strengthReduced * speedupStrength;
+        Vector2 directionNorm = targetLinVel.normalized;
+
+        return directionNorm * strengthReduced * speedupStrength;
     }
 
 
