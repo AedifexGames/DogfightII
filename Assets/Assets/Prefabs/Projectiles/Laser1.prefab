@@ -299,6 +299,9 @@ MonoBehaviour:
   _onDestroy:
     m_PersistentCalls:
       m_Calls: []
+  _destroyMask:
+    serializedVersion: 2
+    m_Bits: 1280
 --- !u!1 &3704829726368051009
 GameObject:
   m_ObjectHideFlags: 0

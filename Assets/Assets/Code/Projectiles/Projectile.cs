@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     private float _currentTime;
     private Vector3 _position;
     [SerializeField] private UnityEvent _onDestroy;
+    [SerializeField] private LayerMask _destroyMask;
 
     private void Start()
     {
@@ -28,5 +29,23 @@ public class Projectile : MonoBehaviour
         Vector3 offset = transform.right * _lifetimeHorizontalOffset.Evaluate(_currentTime / _lifetime) * _horizontalOffsetIntensity;
         _position += transform.up * _lifetimeVelocity.Evaluate(_currentTime / _lifetime) * Time.deltaTime * _velocityIntensity;
         transform.position = _position + offset;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (_destroyMask == (_destroyMask | (1 << collision.collider.gameObject.layer)))
+        {
+            _onDestroy?.Invoke();
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_destroyMask == (_destroyMask | (1 << collision.gameObject.layer)))
+        {
+            _onDestroy?.Invoke();
+            Destroy(gameObject);
+        }
     }
 }

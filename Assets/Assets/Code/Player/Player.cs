@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     [SerializeField] private AnimationCurve _chargeSlowDown;
     [SerializeField] private float _chargeMinSpeed;
     private float _cachedMoveSpeed;
+    [SerializeField] private Transform _chargeIndicator;
+    [SerializeField] private Vector2 _indicatorInitialScale;
+    [SerializeField] private Vector2 _indicatorFinalScale;
 
     //Dash Variables
     [SerializeField] private float _fullyChargedDashSpeed;
@@ -157,10 +160,12 @@ public class Player : MonoBehaviour
         _charged = false;
         _spriteRenderer.color = Color.yellow;
         _cachedMoveSpeed = _currentMoveSpeed;
+        _chargeIndicator.localScale = _indicatorInitialScale;
     }
 
     private void SpacebarEnd()
     {
+        _chargeIndicator.gameObject.SetActive(false);
         _currentMoveSpeed = _baseMoveSpeed;
         _spriteRenderer.color = Color.orange;
         if (_currentChargeAmount >= _minChargeToDash)
@@ -180,6 +185,10 @@ public class Player : MonoBehaviour
             // Increase charge
             _currentChargeAmount += Time.deltaTime * _chargeSpeed;
 
+            if (_currentChargeAmount > _minChargeToDash)
+            {
+                _chargeIndicator.gameObject.SetActive(true);
+            }
             // Finish charging
             if (_currentChargeAmount > _targetChargeAmount)
             {
@@ -190,6 +199,7 @@ public class Player : MonoBehaviour
             // Slow down movement
             float dif = _cachedMoveSpeed - _chargeMinSpeed;
             _currentMoveSpeed = _chargeMinSpeed + _chargeSlowDown.Evaluate(_currentChargeAmount / _targetChargeAmount) * dif;
+            _chargeIndicator.transform.localScale = Vector2.Lerp(_indicatorInitialScale, _indicatorFinalScale, _currentChargeAmount / _targetChargeAmount);
         }
     }
 
@@ -297,4 +307,6 @@ public class Player : MonoBehaviour
         _calculateOffset = true;
         _cameraTarget.enabled = true;
     }
+
+    public bool Dashing { get { return _dashing; } }
 }

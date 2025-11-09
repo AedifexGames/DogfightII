@@ -2,7 +2,8 @@
     "name": "Interactables",
     "rootNamespace": "",
     "references": [
-        "RigidbodyManager"
+        "RigidbodyManager",
+        "Player"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

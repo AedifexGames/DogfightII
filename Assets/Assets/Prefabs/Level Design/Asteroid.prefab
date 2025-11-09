@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 3656460184483671491}
   - component: {fileID: -1606023380231740252}
   - component: {fileID: -6110997804656140694}
-  m_Layer: 0
+  - component: {fileID: -2276668937856055109}
+  m_Layer: 10
   m_Name: Asteroid
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -240,6 +241,18 @@ MonoBehaviour:
   xOffsetMaxRadius: 0.5
   yOffsetMaxRadius: 0.5
   zOffsetMaxRadius: 0
+--- !u!114 &-2276668937856055109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6485789506621760554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9934675917150a4eaec38d0c016b9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Interactables::Asteroid
 --- !u!1001 &1174458435975655367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,6 +261,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 286792522196944987}
     m_Modifications:
+    - target: {fileID: 2642696632227941824, guid: 26cf8fa786e7e3343b417e697977934e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2871318780382331586, guid: 26cf8fa786e7e3343b417e697977934e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.09
@@ -296,9 +313,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3416533499950368229, guid: 26cf8fa786e7e3343b417e697977934e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5278154943851087636, guid: 26cf8fa786e7e3343b417e697977934e, type: 3}
       propertyPath: m_Name
       value: Asteroid Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278154943851087636, guid: 26cf8fa786e7e3343b417e697977934e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268520820325472580, guid: 26cf8fa786e7e3343b417e697977934e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
