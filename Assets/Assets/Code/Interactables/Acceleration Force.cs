@@ -61,6 +61,7 @@ public class AccelerationForce : MonoBehaviour
             float distTime = 1 - distNorm;
 
             // 0 at radius, 1 at center
+            // Will NOT work with return in for loop HERE
             return distTime;
         }
         return 0;
@@ -94,6 +95,7 @@ public class AccelerationForce : MonoBehaviour
             Quaternion scaledRotation = Quaternion.AngleAxis(scaledAngle, axis);
 
             // Scaled rotation in world space
+            // Will NOT work with return in for loop HERE
             return scaledRotation * curRotation;
         }        
         return Quaternion.identity;
@@ -112,6 +114,7 @@ public class AccelerationForce : MonoBehaviour
 
             Vector2 directionNorm = _targetLinVel[i].normalized;
 
+            // Will NOT work with return in for loop HERE
             return directionNorm * strengthReduced * _speedupStrength;
         }
         return Vector2.zero;
@@ -128,6 +131,7 @@ public class AccelerationForce : MonoBehaviour
 
             float strengthReduced = (_masses[i] != 0) ? strength / _masses[i] : strength;
 
+            // Will NOT work with return in for loop HERE
             return strengthReduced * _pullStrength;
         }
         return 0;
