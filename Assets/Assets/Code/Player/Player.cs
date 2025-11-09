@@ -214,7 +214,7 @@ public class Player : MonoBehaviour
             {
                 EndDash();
             }
-            if (_currentDashTime > _totalDashTime / 4) { EnableOffset(); }
+            if (_currentDashTime > _totalDashTime / 20) { EnableOffset(); }
 
             // Speed up movement and dropoff
             float dif = _cachedMoveSpeed - _baseMoveSpeed;
