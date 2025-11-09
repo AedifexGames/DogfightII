@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8c45cfed01f844ab7a62e8b5bbe02, type: 3}
   m_Name: Player Laser
   m_EditorClassIdentifier: Projectile::ProjectileSO
-  _projectile: {fileID: 3500570734909327294, guid: c8a4ac3c182b437469a5e5116c3aa711, type: 3}
+  _projectile: {fileID: 3500570734909327294, guid: cc0bf6cfa5323df4d875050789bc40fd, type: 3}
   _fireAudio: {fileID: 0}
