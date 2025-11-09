@@ -1015,6 +1015,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 519420032}
     m_Modifications:
+    - target: {fileID: 1726737548672758113, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726737548672758113, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726737548672758113, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726737548672758113, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726737548672758113, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2628504338939605592, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
       propertyPath: m_Name
       value: Cataclysm Model
@@ -1062,8 +1082,84 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7016217471209754317, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 575037790}
+    - targetCorrespondingSourceObject: {fileID: 7016217471209754317, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 575037791}
+    - targetCorrespondingSourceObject: {fileID: 7016217471209754317, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 575037794}
   m_SourcePrefab: {fileID: 100100000, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+--- !u!1 &575037789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7016217471209754317, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+  m_PrefabInstance: {fileID: 575037788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &575037790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575037789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb374f434bad514ebda72a2da867399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookTowardTransform
+  target: {fileID: 1555811938}
+  angleOffset: 180
+--- !u!114 &575037791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575037789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd83cca4f19dc34ab5f255e4f5278d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Projectile::ProjectileSpawner
+  _projectileData: {fileID: 11400000, guid: 6d867dc86ee84d348b887189ebb5f639, type: 2}
+  _firePoint: {fileID: 575037792}
+--- !u!4 &575037792 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1726737548672758113, guid: 540582d7b341b404aa3d75bd5d4ead38, type: 3}
+  m_PrefabInstance: {fileID: 575037788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &575037794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575037789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb36743ea230954ab0c03c73e2b5466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Timer::UnityEventOnTimer
+  _onTimer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 575037791}
+        m_TargetAssemblyTypeName: ProjectileSpawner, Projectile
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _initialTimerDuration: 5
+  _currentTimer: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
