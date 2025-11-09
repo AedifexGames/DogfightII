@@ -1,11 +1,12 @@
 using UnityEngine;
 using System;
 using UnityEngine.XR;
+using Physics;
 public class Player : MonoBehaviour
 {
     #region Variables
     private InputManager _inputManager;
-    private Rigidbody2D _rb;
+    private Rigidbody2DManager _rb;
 
     //Movement Settings
     [SerializeField] private float _turnSpeed;
@@ -58,7 +59,8 @@ public class Player : MonoBehaviour
         _inputManager = InputManager.instance;
         _inputManager.onSpacebarPressed += SpacebarStart;
         _inputManager.onSpacebarRelease += SpacebarEnd;
-        _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2DManager>();
+        _rb.AddForce("Player Input", Vector2.zero, 0, 0);
         _projectileTimer = GetComponent<UnityEventOnTimer>();
 
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -72,10 +74,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // Set movement settings
-        _rb.angularVelocity = (_inputManager.SpacebarPressed()) 
+        float angularVelocity = (_inputManager.SpacebarPressed()) 
             ? _turnSpeed * _inputManager.TurnInput()
             : _turnSpeed * 2 * _inputManager.TurnInput();
-        _rb.linearVelocity = _currentMoveSpeed * transform.up;
+        if (_dashing) angularVelocity = (_turnSpeed / 2) * _inputManager.TurnInput(); // half turning speed
+
         ClampAngle();
         ClampYAxis();
         RealignPath();
@@ -93,6 +96,8 @@ public class Player : MonoBehaviour
         Charge();
         Dash();
         CalculateOffset(); // move forward with speed
+        Vector2 linearVelocity = _currentMoveSpeed * transform.up;
+        _rb.SetForce("Player Input", linearVelocity, angularVelocity);
     }
 
     private void ClampAngle()
@@ -193,9 +198,6 @@ public class Player : MonoBehaviour
         // Current dashing
         if (_dashing)
         {
-            // Set movement settinggs
-            _rb.angularVelocity = (_turnSpeed / 2) * _inputManager.TurnInput(); // half turning speed
-
             // Count down dash duration
             _currentDashTime += Time.deltaTime;
             if (_currentDashTime > _totalDashTime)

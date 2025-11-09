@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using Physics;
 public class AccelerationForce : MonoBehaviour 
 {
     // Goals:
@@ -10,9 +10,9 @@ public class AccelerationForce : MonoBehaviour
     // Velocity
     // Vertical pull
 
-    private List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
-    private List<float> _radii = new List<float>();
-    private List<float> _masses = new List<float>();
+    private CircleCollider2D _collider;
+    private float _radius;
+    private float _mass;
 
     [SerializeField] private AnimationCurve _gravVelPull;
     [SerializeField] private float _speedupStrength;
@@ -21,69 +21,56 @@ public class AccelerationForce : MonoBehaviour
     [SerializeField] private AnimationCurve _gravVertPull;
     [SerializeField] private float _pullStrength;
 
-    // Target information variables
-    private List<Vector3> _targetPos = new List<Vector3>();
-    private List<Vector2> _targetLinVel = new List<Vector2>();
+    private List<Rigidbody2DManager> _targets = new List<Rigidbody2DManager>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Collect target information
-        _targetPos.Add(new Vector3(
-            collision.transform.position.x,
-            collision.transform.position.y,
-            collision.transform.position.z
-        ));
-        _targetLinVel.Add(new Vector2(
-            collision.attachedRigidbody.linearVelocityX,
-            collision.attachedRigidbody.linearVelocityY
-        ));
+        if(collision.GetComponent<Rigidbody2DManager>() != null )
+            _targets.Add(collision.GetComponent<Rigidbody2DManager>());
     }
 
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Rigidbody2DManager>() != null)
+            _targets.Remove(collision.GetComponent<Rigidbody2DManager>());
+    }
     private void Start()
     {
-        _colliders.Add(GetComponent<CircleCollider2D>());
-        int lastIndex = _colliders.Count - 1;
-        _radii.Add(_colliders[lastIndex].radius);
-        _masses.Add(_colliders[lastIndex].attachedRigidbody.mass);
+        _collider = GetComponent<CircleCollider2D>();
+        _radius = _collider.radius;
+        _mass = _collider.attachedRigidbody.mass;
     }
 
 
-    private float calcDistNormTime()
+    private float calcDistNormTime(int i)
     {
-        for (int i=0; i< _colliders.Count; i++)
-        {
             // Calculate distance variables
-            Vector3 distVec = _targetPos[i] - transform.position;
+            Vector3 distVec = _targets[i].transform.position - transform.position;
             float dist = distVec.magnitude;
             if (dist == 0) { return 1; }
-            float distNorm = dist / _radii[i];
+            float distNorm = dist / _radius;
             float distTime = 1 - distNorm;
 
             // 0 at radius, 1 at center
             // Will NOT work with return in for loop HERE
             return distTime;
-        }
-        return 0;
     }
 
 
-    private Quaternion calcAngleDelta()
+    private Quaternion calcAngleDelta(int i)
     {
-        for (int i = 0; i < _colliders.Count; i++)
-        {
-            float time = calcDistNormTime();
+            float time = calcDistNormTime(i);
             float strength = _gravAnglePull.Evaluate(time);
 
-            Vector3 targetToCenterVec = transform.position - _targetPos[i];
-            Quaternion curRotation = Quaternion.LookRotation(_targetLinVel[i]);
+            Vector3 targetToCenterVec = transform.position - _targets[i].transform.position;
+            Quaternion curRotation = Quaternion.LookRotation(_targets[i].GetRigidbody2D().linearVelocity);
             Quaternion targetRotation = Quaternion.LookRotation(targetToCenterVec);
 
             // Rotation needed
             Quaternion rotationNeeded = targetRotation * Quaternion.Inverse(curRotation);
             rotationNeeded.Normalize();
 
-            float maxAngle = Vector3.Angle(_targetLinVel[i], targetToCenterVec);
+            float maxAngle = Vector3.Angle(_targets[i].GetRigidbody2D().linearVelocity, targetToCenterVec);
 
             // Convert rotation angle to degrees
             rotationNeeded.ToAngleAxis(out float angle, out Vector3 axis);
@@ -97,43 +84,44 @@ public class AccelerationForce : MonoBehaviour
             // Scaled rotation in world space
             // Will NOT work with return in for loop HERE
             return scaledRotation * curRotation;
-        }        
-        return Quaternion.identity;
     }
 
 
-    private Vector2 calcVelocityDelta()
+    private Vector2 calcVelocityDelta(int i)
     {
-        for (int i = 0; i < _colliders.Count; i++)
-        {
-            float time = calcDistNormTime();
+            float time = calcDistNormTime(i);
 
             float strength = _gravVelPull.Evaluate(time);
 
-            float strengthReduced = (_masses[i] != 0) ? strength / _masses[i] : strength;
+            float strengthReduced = (_mass != 0) ? strength / _mass : strength;
 
-            Vector2 directionNorm = _targetLinVel[i].normalized;
+            Vector2 directionNorm = _targets[i].GetRigidbody2D().linearVelocity.normalized;
 
             // Will NOT work with return in for loop HERE
             return directionNorm * strengthReduced * _speedupStrength;
-        }
-        return Vector2.zero;
     }
 
 
-    private float calcVertPullDelta()
+    private float calcVertPullDelta(int i)
     {
-        for (int i = 0; i < _colliders.Count; i++)
-        {
-            float time = calcDistNormTime();
+            float time = calcDistNormTime(i);
 
             float strength = _gravVertPull.Evaluate(time);
 
-            float strengthReduced = (_masses[i] != 0) ? strength / _masses[i] : strength;
+            float strengthReduced = (_mass != 0) ? strength / _mass : strength;
 
             // Will NOT work with return in for loop HERE
             return strengthReduced * _pullStrength;
+    }
+
+    public void Update()
+    {
+        for (int i = 0; i < _targets.Count; i++)
+        {
+            float angularVelocity = calcAngleDelta(i).eulerAngles.z;
+            Vector2 linearVelocity = calcVelocityDelta(i);
+            linearVelocity += Vector2.up * calcVertPullDelta(i);
+            _targets[i].GetComponent<Rigidbody2DManager>()?.SetForce("Orbit", linearVelocity, angularVelocity);
         }
-        return 0;
     }
 }

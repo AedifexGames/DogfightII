@@ -14,6 +14,7 @@ namespace Physics
         private Vector2 _maxVelocity => _terminalVelocity;
         [SerializeField] private Vector2 _terminalVelocity = new Vector2(10, 10);
         
+        public Rigidbody2D GetRigidbody2D() { return _rigidbody2D; }
         
         public Force GetForce(string id)
         {
@@ -41,6 +42,7 @@ namespace Physics
             if (f != null)
             {
                 f.ApplyVelocity = applyVelocity;
+                f.AngularVelocity = angular;
             }
             else
             {
@@ -56,15 +58,17 @@ namespace Physics
         private void FixedUpdate()
         {
             ApplyForces();
-            UpdateForces();
+            //UpdateForces();
         }
 
         private void ApplyForces()
         {
             _rigidbody2D.linearVelocity = Vector2.zero;
+            _rigidbody2D.angularVelocity = 0f;
             foreach (Force f in Forces)
             {
                 _rigidbody2D.linearVelocity += f.ApplyVelocity;
+                _rigidbody2D.angularVelocity += f.AngularVelocity;
             }
             _rigidbody2D.linearVelocity = new Vector2(
                 Mathf.Clamp(_rigidbody2D.linearVelocity.x, _minVelocity.x, _maxVelocity.x),
