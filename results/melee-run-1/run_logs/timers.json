@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1762671106",
+        "python_version": "3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\brand\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\mlagents-learn config/melee_config.yaml --run-id=melee-run-1",
+        "mlagents_version": "0.29.0",
+        "mlagents_envs_version": "0.29.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.4.1+cpu",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1762671216"
+    },
+    "total": 109.27655560000001,
+    "count": 1,
+    "self": 0.030316000000013332,
+    "children": {
+        "run_training.setup": {
+            "total": 0.27643249999999986,
+            "count": 1,
+            "self": 0.27643249999999986
+        },
+        "TrainerController.start_learning": {
+            "total": 108.9698071,
+            "count": 1,
+            "self": 0.0002561999999954878,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 108.9695023,
+                    "count": 1,
+                    "self": 108.9695023
+                },
+                "TrainerController._save_models": {
+                    "total": 4.8599999999510146e-05,
+                    "count": 1,
+                    "self": 4.8599999999510146e-05
+                }
+            }
+        }
+    }
+}

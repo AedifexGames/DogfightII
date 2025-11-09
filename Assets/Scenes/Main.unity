@@ -1964,41 +1964,14 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _speedupStrength: 2
+  _speedupStrength: 5
   _gravAnglePull:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 6.6501
-      outSlope: 6.6501
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.060028017
-    - serializedVersion: 3
-      time: 0.32130313
-      value: 0.99986356
-      inSlope: 0.15423499
-      outSlope: 0.15423499
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9980469
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _curveStrength: 10
+  _curveStrength: 3
   _gravVertPull:
     serializedVersion: 2
     m_Curve:
@@ -2023,7 +1996,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _pullStrength: 5
+  _pullStrength: 0.5
+  _decayRate: 10
 --- !u!1 &1309384441
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,8 +2251,8 @@ Transform:
   m_GameObject: {fileID: 1411490034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.71, y: -7.21, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: 29.2, y: 3.8, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1289890338}
@@ -3081,7 +3055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _baseMoveSpeed
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1131257886470338388, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _originalRot.z
