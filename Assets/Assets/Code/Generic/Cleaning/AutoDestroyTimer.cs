@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AutoDestroyTimer : MonoBehaviour
 {
-    private float _lifetime = 0;
+    [SerializeField] private float _lifetime = 0;
 
     private void FixedUpdate()
     {

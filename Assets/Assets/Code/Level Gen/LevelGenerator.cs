@@ -12,12 +12,15 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
     private float _currentLevelCursorX = 35.5f;
     private float _deletionOffsetFromCursor = -100f;
     private static readonly float[] _yOffsets = { -7.5f, -2.5f, 2.5f, 7.5f };
+    private int _numberOfTotalColumns;
 
     private List<int> _currentColumn;
     private List<int> _lastColumn;
     private List<Transform> _createdColumns;
 
     [SerializeField] private List<CellDataSO> _cards = new List<CellDataSO>();
+    [SerializeField] private int shieldSpawnRate = 10;
+    [SerializeField] private GameObject _shieldRegen;
 
     private void Start()
     {
@@ -57,6 +60,13 @@ public class LevelGenerator : SingletonBehaviour<LevelGenerator>
         _lastColumn = _currentColumn;
         for (int i = 0; i < 4; i++) _currentColumn[i] = 0;
         _currentLevelCursorX += 5;
+        _numberOfTotalColumns++;
+        if (_numberOfTotalColumns % shieldSpawnRate == 0)
+        {
+            GameObject obj = GameObject.Instantiate(_shieldRegen);
+            obj.transform.position = _currentLevelCursorX * Vector2.right;
+            //shieldSpawnRate+=3;
+        }
     }
 
     private int GenerateLevelCell(Vector2 pos, bool[] bordering, Transform parent)

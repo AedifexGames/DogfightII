@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -6110997804656140694}
   - component: {fileID: -2276668937856055109}
   - component: {fileID: 9121895783954298263}
+  - component: {fileID: 1491324174153489993}
   m_Layer: 10
   m_Name: Asteroid
   m_TagString: Asteroid
@@ -254,6 +255,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9934675917150a4eaec38d0c016b9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Interactables::Asteroid
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1491324174153489993}
+        m_TargetAssemblyTypeName: ParticleSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6751116793140631319, guid: 01b3fb0117e2f06418c5432522119bd8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9121895783954298263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +299,18 @@ MonoBehaviour:
   healMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &1491324174153489993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6485789506621760554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f3efd9c6877094e94c19d57e5e18f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParticleSpawner
 --- !u!1001 &1174458435975655367
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8151235365320181000}
   - component: {fileID: 8103212095966772829}
-  m_Layer: 0
+  - component: {fileID: 103775616069625876}
+  - component: {fileID: 8522793637306352}
+  - component: {fileID: 6490661813604552749}
+  m_Layer: 8
   m_Name: Cat UFO Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +53,107 @@ MonoBehaviour:
   freq: 1
   speed: -5
   rotMagnitude: 10
+--- !u!58 &103775616069625876
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642713579465713900}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.1, y: 0.19}
+  m_Radius: 0.68
+--- !u!114 &8522793637306352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642713579465713900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fe38fa6c603994eaba0a47406ddf32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxShield: 0
+  curShield: 0
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6490661813604552749}
+        m_TargetAssemblyTypeName: ParticleSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6751116793140631319, guid: 01b3fb0117e2f06418c5432522119bd8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3642713579465713900}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  damageMask:
+    serializedVersion: 2
+    m_Bits: 640
+  healMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &6490661813604552749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642713579465713900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f3efd9c6877094e94c19d57e5e18f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParticleSpawner
 --- !u!1001 &4817159306520426793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,6 +162,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8151235365320181000}
     m_Modifications:
+    - target: {fileID: 2178083932869415435, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549445651721167255, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774497218852453929, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3156722966956148370, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398724264391379278, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735919067719567789, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921931043208534994, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603743940006498809, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6073621845605269836, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -106,9 +242,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6156398651852708143, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702816575866211184, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210254079751412405, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891968070642804032, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011512094999983924, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525749927331867214, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565407421333564238, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9082553084473068318, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
       propertyPath: m_Name
       value: Cat UFO Melee Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082553084473068318, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179675083490920146, guid: 4261df1637bc6e34387a25a3e03013dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

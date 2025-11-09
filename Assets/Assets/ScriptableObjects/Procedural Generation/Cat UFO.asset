@@ -15,6 +15,6 @@ MonoBehaviour:
   _name: Cat UFO
   _id: 3
   _baseWeight: 1
-  _bonusWeight: 3
+  _bonusWeight: 1
   prefabs:
   - {fileID: 3642713579465713900, guid: 4ec29b1c36ed25e44a3cc77e48cc6401, type: 3}

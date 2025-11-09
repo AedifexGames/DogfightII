@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "RigidbodyManager",
-        "Player"
+        "Player",
+        "Timer"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
