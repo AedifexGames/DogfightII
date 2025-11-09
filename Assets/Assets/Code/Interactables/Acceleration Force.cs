@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,120 +10,126 @@ public class AccelerationForce : MonoBehaviour
     // Velocity
     // Vertical pull
 
-    private CircleCollider2D _collider;
-    private float radius;
-    private float mass;
-    [SerializeField] private AnimationCurve gravVelPull;
-    [SerializeField] private float speedupStrength;
-    [SerializeField] private AnimationCurve gravAnglePull;
-    [SerializeField] private float curveStrength;
-    [SerializeField] private AnimationCurve gravVertPull;
-    [SerializeField] private float pullStrength;
+    private List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
+    private List<float> _radii = new List<float>();
+    private List<float> _masses = new List<float>();
+
+    [SerializeField] private AnimationCurve _gravVelPull;
+    [SerializeField] private float _speedupStrength;
+    [SerializeField] private AnimationCurve _gravAnglePull;
+    [SerializeField] private float _curveStrength;
+    [SerializeField] private AnimationCurve _gravVertPull;
+    [SerializeField] private float _pullStrength;
 
     // Target information variables
-    Vector3 targetPos;
-    Quaternion targetRot;
-    Vector2 targetLinVel;
-    float targetAngVel;
-
+    private List<Vector3> _targetPos = new List<Vector3>();
+    private List<Vector2> _targetLinVel = new List<Vector2>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Collect target information
-        Vector3 targetPos = new Vector3(
+        _targetPos.Add(new Vector3(
             collision.transform.position.x,
             collision.transform.position.y,
             collision.transform.position.z
-        );
-        Quaternion targetRot = new Quaternion(
-            collision.transform.rotation.x,
-            collision.transform.rotation.y,
-            collision.transform.rotation.z,
-            collision.transform.rotation.w
-        );
-        Vector2 targetLinVel = new Vector2(
+        ));
+        _targetLinVel.Add(new Vector2(
             collision.attachedRigidbody.linearVelocityX,
             collision.attachedRigidbody.linearVelocityY
-        );
-        float targetAngVel = collision.attachedRigidbody.angularVelocity;
-
+        ));
     }
 
 
     private void Start()
     {
-        _collider = GetComponent<CircleCollider2D>();
-        radius = _collider.radius;
-        mass = _collider.attachedRigidbody.mass;
+        _colliders.Add(GetComponent<CircleCollider2D>());
+        int lastIndex = _colliders.Count - 1;
+        _radii.Add(_colliders[lastIndex].radius);
+        _masses.Add(_colliders[lastIndex].attachedRigidbody.mass);
     }
 
 
     private float calcDistNormTime()
     {
-        // Calculate distance variables
-        Vector3 distVec = targetPos - transform.position;
-        float dist = distVec.magnitude;
-        if (dist == 0) { return 1; }
-        float distNorm = dist / radius;
-        float distTime = 1 - distNorm;
+        for (int i=0; i< _colliders.Count; i++)
+        {
+            // Calculate distance variables
+            Vector3 distVec = _targetPos[i] - transform.position;
+            float dist = distVec.magnitude;
+            if (dist == 0) { return 1; }
+            float distNorm = dist / _radii[i];
+            float distTime = 1 - distNorm;
 
-        // 0 at radius, 1 at center
-        return distTime;
+            // 0 at radius, 1 at center
+            return distTime;
+        }
+        return 0;
     }
 
 
     private Quaternion calcAngleDelta()
     {
-        float time = calcDistNormTime();
-        float strength = gravAnglePull.Evaluate(time);
+        for (int i = 0; i < _colliders.Count; i++)
+        {
+            float time = calcDistNormTime();
+            float strength = _gravAnglePull.Evaluate(time);
 
-        Vector3 targetToCenterVec = transform.position - targetPos;
-        Quaternion curRotation = Quaternion.LookRotation(targetLinVel);
-        Quaternion targetRotation = Quaternion.LookRotation(targetToCenterVec );
+            Vector3 targetToCenterVec = transform.position - _targetPos[i];
+            Quaternion curRotation = Quaternion.LookRotation(_targetLinVel[i]);
+            Quaternion targetRotation = Quaternion.LookRotation(targetToCenterVec);
 
-        // Rotation needed
-        Quaternion rotationNeeded = targetRotation * Quaternion.Inverse( curRotation );
-        rotationNeeded.Normalize();
+            // Rotation needed
+            Quaternion rotationNeeded = targetRotation * Quaternion.Inverse(curRotation);
+            rotationNeeded.Normalize();
 
-        float maxAngle = Vector3.Angle(targetLinVel, targetToCenterVec);
+            float maxAngle = Vector3.Angle(_targetLinVel[i], targetToCenterVec);
 
-        // Convert rotation angle to degrees
-        rotationNeeded.ToAngleAxis(out float angle, out Vector3 axis);
+            // Convert rotation angle to degrees
+            rotationNeeded.ToAngleAxis(out float angle, out Vector3 axis);
 
-        // Clamp rotation
-        float scaledAngle = Mathf.Min(angle * strength, maxAngle);
+            // Clamp rotation
+            float scaledAngle = Mathf.Min(angle * strength, maxAngle);
 
-        // Reconstruct scaled rotation
-        Quaternion scaledRotation = Quaternion.AngleAxis(scaledAngle, axis);
+            // Reconstruct scaled rotation
+            Quaternion scaledRotation = Quaternion.AngleAxis(scaledAngle, axis);
 
-        // Scaled rotation in world space
-        return scaledRotation * curRotation;
-        
+            // Scaled rotation in world space
+            return scaledRotation * curRotation;
+        }        
+        return Quaternion.identity;
     }
 
 
     private Vector2 calcVelocityDelta()
     {
-        float time = calcDistNormTime();
+        for (int i = 0; i < _colliders.Count; i++)
+        {
+            float time = calcDistNormTime();
 
-        float strength = gravVelPull.Evaluate(time);
+            float strength = _gravVelPull.Evaluate(time);
 
-        float strengthReduced = (mass != 0) ? strength / mass : strength;
+            float strengthReduced = (_masses[i] != 0) ? strength / _masses[i] : strength;
 
-        Vector2 directionNorm = targetLinVel.normalized;
+            Vector2 directionNorm = _targetLinVel[i].normalized;
 
-        return directionNorm * strengthReduced * speedupStrength;
+            return directionNorm * strengthReduced * _speedupStrength;
+        }
+        return Vector2.zero;
     }
 
 
     private float calcVertPullDelta()
     {
-        float time = calcDistNormTime();
+        for (int i = 0; i < _colliders.Count; i++)
+        {
+            float time = calcDistNormTime();
 
-        float strength = gravVertPull.Evaluate(time);
+            float strength = _gravVertPull.Evaluate(time);
 
-        float strengthReduced = (mass != 0) ? strength / mass : strength;
+            float strengthReduced = (_masses[i] != 0) ? strength / _masses[i] : strength;
 
-        return strengthReduced * pullStrength;
+            return strengthReduced * _pullStrength;
+        }
+        return 0;
     }
 }
