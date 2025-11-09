@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a74f7e5a7e6ccf748b275a73d8ba0f42, type: 3}
-  m_Name: Planet
+  m_Name: Cat UFO
   m_EditorClassIdentifier: LevelGen::CellDataSO
-  _name: Planet
-  _id: 2
-  _baseWeight: 0.5
-  _bonusWeight: -0.5
+  _name: Cat UFO
+  _id: 3
+  _baseWeight: 1
+  _bonusWeight: 3
   prefabs:
-  - {fileID: 8199763603498652118, guid: e78e5fa3f89de8a4ba70b3cf095929b8, type: 3}
+  - {fileID: 3642713579465713900, guid: 4ec29b1c36ed25e44a3cc77e48cc6401, type: 3}
