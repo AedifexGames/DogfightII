@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 869909151951344434}
   - component: {fileID: 2130258043384759500}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3500570734909327291}
   - component: {fileID: 3500570734909327288}
   - component: {fileID: -2135665392544740609}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Enemy Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,8 +240,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _velocityIntensity: 25
-  _lifetime: 5
+  _velocityIntensity: 10
+  _lifetime: 10
   _onDestroy:
     m_PersistentCalls:
       m_Calls: []
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6442448131345502637}
   - component: {fileID: 4767795230675382307}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2532913874184767090}
   - component: {fileID: 2157490983487102309}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880457226453936262}
   - component: {fileID: 6121823378951353543}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6811399897214193974}
   - component: {fileID: 1765046549690726189}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4716365888153938859}
   - component: {fileID: 5849890904581753157}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74f7e5a7e6ccf748b275a73d8ba0f42, type: 3}
+  m_Name: Planet
+  m_EditorClassIdentifier: LevelGen::CellDataSO
+  _name: Planet
+  _id: 2
+  _baseWeight: 0.5
+  _bonusWeight: -1000000
+  prefabs:
+  - {fileID: 8199763603498652118, guid: e78e5fa3f89de8a4ba70b3cf095929b8, type: 3}
