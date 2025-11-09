@@ -12,9 +12,14 @@ public class AccelerationForce : MonoBehaviour
     private CircleCollider2D _collider;
     private float radius;
     private float mass;
-    [SerializeField] AnimationCurve gravPull;
+    [SerializeField] private AnimationCurve gravPull;
 
     // Target information variables
+    Vector3 targetPos;
+    Quaternion targetRot;
+    Vector2 targetLinVel;
+    float targetAngVel;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,9 +49,19 @@ public class AccelerationForce : MonoBehaviour
         mass = _collider.attachedRigidbody.mass;
     }
 
-    private void calcStrength()
+    private float calcStrength()
     {
-        float dist = targetPos
+        // Calculate distance variables
+        Vector3 distVec = targetPos - transform.position;
+        float dist = distVec.magnitude;
+        if (dist == 0) { return 1; }
+        float distNorm = dist / radius;
+        float distTime = 1 - distNorm;
+
+        float strength = gravPull.Evaluate( distTime );
+
+
+        return (mass != 0) ? strength / mass : strength;
     }
 
     private void calcAngleDelta()
