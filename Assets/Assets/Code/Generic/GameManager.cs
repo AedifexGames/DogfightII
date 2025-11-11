@@ -1,11 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
     [SerializeField] private GameObject GameOverScreen;
-    public void GameOver()
+    [SerializeField] private TextMeshProUGUI ScoreText;
+    public void GameOver(float score)
     {
         GameOverScreen.SetActive(true);
+        ScoreText.text = "You made it " + (int)score + " light years";
         Time.timeScale = 0.0f;
     }
 }

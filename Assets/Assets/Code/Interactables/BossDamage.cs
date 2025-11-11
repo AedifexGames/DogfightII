@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BossDamage : MonoBehaviour
@@ -16,5 +17,12 @@ public class BossDamage : MonoBehaviour
     {
         timer.Pause();
         boss.GetComponent<Animator>().SetTrigger("Retreat");
+        StartCoroutine(reenableLasers());
+    }
+
+    IEnumerator reenableLasers()
+    {
+        yield return new WaitForSeconds(7f);
+        timer.Unpause();
     }
 }

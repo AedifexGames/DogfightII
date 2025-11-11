@@ -53,6 +53,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _centerGravStrength = 5;
     [SerializeField] private AnimationCurve _gravitationToCenter;
 
+    private float score = 0;
+    private float distanceTraveled = 0;
+    private float timesHit = 0;
+    private float timesTouchedBoss = 0;
+
     //PLACEHOLDER
     private SpriteRenderer _spriteRenderer;
     #endregion
@@ -309,4 +314,19 @@ public class Player : MonoBehaviour
     }
 
     public bool Dashing { get { return _dashing; } }
+
+    public void IncrementHit()
+    {
+        timesHit++; ;
+    }
+
+    public void BossHit()
+    {
+        timesTouchedBoss++;
+    }
+
+    public void PlayerGameOver()
+    {
+        GameManager.instance.GameOver(transform.position.x);
+    }
 }
