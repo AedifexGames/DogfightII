@@ -7,19 +7,17 @@ public class AXGlobal : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         AXGlobal[] globals = FindObjectsByType<AXGlobal>(FindObjectsSortMode.None);
         for (int i = 0; i < globals.Length; i++)
         {
             if (globals[i].gameObject.name == gameObject.name && globals[i] != this)
             {
                 if (!existed)
-                {
-                    Destroy(gameObject);
-                }
+                { Destroy(gameObject); return;  }
             }
         }
         existed = true;
+        DontDestroyOnLoad(gameObject);
     }
 
 }

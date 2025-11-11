@@ -706,7 +706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172528153}
   - component: {fileID: 1172528155}
-  - component: {fileID: 1172528156}
+  - component: {fileID: 1172528154}
   m_Layer: 0
   m_Name: Scene Loader
   m_TagString: Untagged
@@ -729,6 +729,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172528154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172528152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdaf4e888b2c4948bc9caf6ce921d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AXGlobal
 --- !u!114 &1172528155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,18 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8686e9b079a4cf28dc238571b8654d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
---- !u!114 &1172528156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172528152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bdaf4e888b2c4948bc9caf6ce921d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Generic::AXGlobal
 --- !u!1 &1306931429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1154,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3269c218720e13c42928d2c28f02f1fa, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2374f8929daa2c64faaaa3ff304777f7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

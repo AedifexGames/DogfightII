@@ -11,4 +11,9 @@ public class GameManager : SingletonBehaviour<GameManager>
         ScoreText.text = "You made it " + (int)score + " light years";
         Time.timeScale = 0.0f;
     }
+
+    public void ResetTimeScale()
+    {
+        Time.timeScale = 1.0f;
+    }
 }
