@@ -1,7 +1,8 @@
-using UnityEngine;
-using System;
-using UnityEngine.XR;
 using Physics;
+using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.XR;
 public class Player : MonoBehaviour
 {
     #region Variables
@@ -53,6 +54,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _centerGravStrength = 5;
     [SerializeField] private AnimationCurve _gravitationToCenter;
 
+    [SerializeField] private float edgesDist = 9.5f;
+
     private float score = 0;
     private float distanceTraveled = 0;
     private float timesHit = 0;
@@ -79,13 +82,21 @@ public class Player : MonoBehaviour
         _cameraTarget = CameraTarget.instance;
     }
 
+    private float GetTurnInput()
+    {
+        float baseInput = _inputManager.TurnInput();
+        if (AboveBounds()) return Mathf.Clamp(baseInput, -1, 0);
+        else if (BelowBounds()) return Mathf.Clamp(baseInput, 0, 1);
+        return baseInput;
+    }
+
     private void Update()
     {
         // Set movement settings
         float angularVelocity = (_inputManager.SpacebarPressed()) 
-            ? _turnSpeed * _inputManager.TurnInput()
-            : _turnSpeed * 2 * _inputManager.TurnInput();
-        if (_dashing) angularVelocity = (_turnSpeed / 2) * _inputManager.TurnInput(); // half turning speed
+            ? _turnSpeed * GetTurnInput()
+            : _turnSpeed * 2 * GetTurnInput();
+        if (_dashing) angularVelocity = (_turnSpeed / 2) * GetTurnInput(); // half turning speed
 
         ClampAngle();
         ClampYAxis();
@@ -119,9 +130,21 @@ public class Player : MonoBehaviour
         );
     }
 
+    private bool OutOfBounds()
+    {
+        return (Mathf.Abs(transform.position.y) > edgesDist - 1f);
+    }
+    private bool AboveBounds()
+    {
+        return (transform.position.y > edgesDist - 1f);
+    }
+    private bool BelowBounds()
+    {
+        return (transform.position.y < -edgesDist + 1f);
+    }
+
     private void ClampYAxis()
     {
-        float edgesDist = 9.5f;
         transform.position = new Vector3(
             transform.position.x,
             Mathf.Clamp(transform.position.y, -edgesDist, edgesDist),
@@ -131,8 +154,7 @@ public class Player : MonoBehaviour
 
     private void RealignPath()
     {
-        if (_dashing) return;
-        if (_inputManager.TurnInput() == 0 && !_inputManager.SpacebarPressed())
+        if (!_dashing && GetTurnInput() == 0 && !_inputManager.SpacebarPressed())
         {
             // Get direction and change
             float angleOffset = transform.rotation.eulerAngles.z - 270;
