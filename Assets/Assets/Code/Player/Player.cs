@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
         CalculateOffset(); // move forward with speed
         Vector2 linearVelocity = _currentMoveSpeed * transform.up;
         _rb.SetForce("Player Input", linearVelocity, angularVelocity);
+        if (OutOfBounds() && _rb.HasForce("Orbit")) _rb.SetForce("Orbit", new Vector2(_rb.GetForce("Orbit").ApplyVelocity.x, 0), _rb.GetForce("Orbit").AngularVelocity);
     }
 
     private void ClampAngle()
@@ -154,7 +155,8 @@ public class Player : MonoBehaviour
 
     private void RealignPath()
     {
-        if (!_dashing && GetTurnInput() == 0 && !_inputManager.SpacebarPressed())
+        if (!_dashing && GetTurnInput() == 0 && !_inputManager.SpacebarPressed()
+            || ((_dashing || _inputManager.SpacebarPressed()) && ((AboveBounds() && transform.eulerAngles.z > 270) || (BelowBounds() && transform.eulerAngles.z < 270))))
         {
             // Get direction and change
             float angleOffset = transform.rotation.eulerAngles.z - 270;

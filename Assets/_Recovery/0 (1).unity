@@ -2478,8 +2478,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _effectName: Top Effector
-  _force: {x: 0, y: -3}
-  _angularForce: 0
+  _force: {x: 0, y: -2}
+  _angularForce: -450
 --- !u!61 &1298287939
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3656,7 +3656,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.6666656, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3666,7 +3666,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 26.666668, y: 70}
+  m_Size: {x: 30, y: 70}
   m_EdgeRadius: 0
 --- !u!114 &1682652606
 MonoBehaviour:
@@ -4309,8 +4309,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _effectName: Bottom Effector
-  _force: {x: 0, y: 3}
-  _angularForce: 0
+  _force: {x: 0, y: 2}
+  _angularForce: 450
 --- !u!61 &1974467507
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4710,10 +4710,6 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
-      propertyPath: _targetChargeAmount
-      value: 1.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _fullyChargedDashSpeed
       value: 18
       objectReference: {fileID: 0}
@@ -4728,10 +4724,6 @@ PrefabInstance:
     - target: {fileID: 1284700809212993194, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_Layer
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1913254501489973840, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1913254501489973840, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: healMask.m_Bits
