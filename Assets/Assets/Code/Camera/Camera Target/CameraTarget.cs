@@ -5,6 +5,7 @@ public class CameraTarget : SingletonBehaviour<CameraTarget>
     [SerializeField] private float _offset;
     private const float _levelGenerateInterval = 5f;
     private float _currentTargetToLevelGen = 0f;
+    [SerializeField] private float _lerpSpeed = 3f;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class CameraTarget : SingletonBehaviour<CameraTarget>
 
     private void UpdateOffset()
     {
-        transform.position = new Vector3(_target.position.x + _offset, transform.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(_target.position.x + _offset, transform.position.y, transform.position.z), Time.deltaTime * _lerpSpeed);
     }
 
     private void UpdateLevelGen()

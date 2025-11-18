@@ -488,6 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Camera::CameraTarget
   _target: {fileID: 1555811938}
   _offset: 0
+  _lerpSpeed: 3
 --- !u!4 &158587467
 Transform:
   m_ObjectHideFlags: 0
@@ -4694,6 +4695,14 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _maxOffset
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: _minOffset
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _turnSpeed
       value: 360
       objectReference: {fileID: 0}
@@ -4710,6 +4719,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: mobilityFactor
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _targetChargeAmount
       value: 1.33
       objectReference: {fileID: 0}
@@ -4719,7 +4732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775606168653886049, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _targetSpeedForMinOffset
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1131257886470338388, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: _originalRot.z
@@ -4808,6 +4821,10 @@ PrefabInstance:
     - target: {fileID: 5700001712027656903, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6030539597498745789, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6164307936874430881, guid: 79324c8f3a984064180f4e5efbd957a5, type: 3}
       propertyPath: m_Layer

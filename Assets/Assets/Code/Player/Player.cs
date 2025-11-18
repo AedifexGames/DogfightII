@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     //Movement Settings
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _baseMoveSpeed;
-    private float _currentMoveSpeed;
+    [SerializeField] private float _currentMoveSpeed;
     [SerializeField] private float _maxAngleOffset = 60f;
     private UnityEventOnTimer _projectileTimer;
     [SerializeField] private float rotateDegree = 270f;
@@ -100,7 +100,6 @@ public class Player : MonoBehaviour
 
         ClampAngle();
         ClampYAxis();
-        RealignPath();
 
         // Mobility factor and gravitation forces
         /*_rb.linearVelocity = new Vector2(
@@ -114,10 +113,16 @@ public class Player : MonoBehaviour
         // Handle dashing and charging
         Charge();
         Dash();
-        CalculateOffset(); // move forward with speed
+        
         Vector2 linearVelocity = _currentMoveSpeed * transform.up;
         _rb.SetForce("Player Input", linearVelocity, angularVelocity);
         if (OutOfBounds() && _rb.HasForce("Orbit")) _rb.SetForce("Orbit", new Vector2(_rb.GetForce("Orbit").ApplyVelocity.x, 0), _rb.GetForce("Orbit").AngularVelocity);
+    }
+
+    private void FixedUpdate()
+    {
+        RealignPath();
+        CalculateOffset(); // move forward with speed
     }
 
     private void ClampAngle()
@@ -161,7 +166,7 @@ public class Player : MonoBehaviour
             // Get direction and change
             float angleOffset = transform.rotation.eulerAngles.z - 270;
 
-            if (Mathf.Abs(angleOffset) < 2f) { transform.rotation = Quaternion.Euler(0,0,270); return; }
+            if (Mathf.Abs(angleOffset) < 3f) { transform.rotation = Quaternion.Euler(0,0,270); return; }
 
             float pointedDirection = angleOffset / Math.Abs(angleOffset);
 
